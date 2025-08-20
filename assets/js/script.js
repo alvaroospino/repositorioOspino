@@ -122,6 +122,71 @@ function initAvatarAnimation() {
     }
 }
 
+// Animación de entrada profesional del avatar en el hero
+function initHeroAvatarEntrance() {
+    const hero = document.getElementById('hero');
+    const avatar = document.getElementById('heroAvatar');
+
+    if (!hero || !avatar) return;
+
+    // Forzar siempre la entrada desde la derecha
+    function pickDirection() {
+        return 'enter-right';
+    }
+
+    function triggerEntrance() {
+        // remove any previous classes
+        avatar.classList.remove('enter-left','enter-right','enter-bottom','animate-enter');
+        const dir = pickDirection();
+        avatar.classList.add(dir);
+
+        // force reflow to restart animation
+        // eslint-disable-next-line no-unused-expressions
+        avatar.offsetWidth;
+
+        // small timeout so we see initial state (helps on mobile)
+        setTimeout(() => {
+            avatar.classList.add('animate-enter');
+        }, 80);
+    }
+
+    window.addEventListener('load', triggerEntrance);
+    document.addEventListener('DOMContentLoaded', triggerEntrance);
+    window.addEventListener('pageshow', (e) => {
+        triggerEntrance();
+    });
+
+    // Also trigger when hero becomes visible (use IntersectionObserver)
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                triggerEntrance();
+            }
+        });
+    }, { threshold: 0.4 });
+
+    io.observe(hero);
+
+    // Re-evaluate direction on resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            // if avatar already animated, re-run with new direction
+            triggerEntrance();
+        }, 200);
+    });
+
+    // Disparar inmediatamente si el script se ejecuta después de la carga
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        // pequeña demora para asegurar estilos aplicados
+        setTimeout(triggerEntrance, 60);
+    }
+}
+
+// Inicializar la animación de entrada del avatar
+initHeroAvatarEntrance();
+
 // Carrusel de proyectos con miniaturas
 function initCarousel() {
     const projectsCarousel = document.querySelector(".projects-carousel");
@@ -348,7 +413,6 @@ function initCursor() {
     });
 }
 
-// Navbar scroll effect
 // Navbar scroll effect y navegación activa
 function initNavbar() {
     const navbar = document.getElementById("navbar");
@@ -541,47 +605,58 @@ function initScrollAnimations() {
 
 // Contadores animados
 function initCounters() {
-    const counters = document.querySelectorAll(".stat-number");
+    const statsContainer = document.getElementById("statsGrid");
+    if (!statsContainer) return;
+
     let hasAnimated = false;
 
-    const animateCounter = (counter) => {
-        if (hasAnimated) return;
+    function animateValue(el, start, end, duration) {
+        const range = end - start;
+        if (range === 0) {
+            el.textContent = end;
+            return;
+        }
+        const minInterval = 16; // ~60fps
+        const steps = Math.max(Math.ceil(duration / minInterval), 1);
+        const stepTime = duration / steps;
+        let currentStep = 0;
+        const stepAmount = range / steps;
 
-        const target = parseInt(counter.getAttribute("data-target"));
-        const increment = target / 50;
-        let current = 0;
-
-        const updateCounter = () => {
-            if (current < target) {
-                current += increment;
-                counter.textContent = Math.ceil(current);
-                setTimeout(updateCounter, 50);
+        const run = () => {
+            currentStep++;
+            const value = start + stepAmount * currentStep;
+            if ((stepAmount > 0 && value >= end) || (stepAmount < 0 && value <= end) || currentStep >= steps) {
+                el.textContent = end;
             } else {
-                counter.textContent = target;
+                el.textContent = Math.ceil(value);
+                setTimeout(run, stepTime);
             }
         };
 
-        updateCounter();
-        hasAnimated = true;
-    };
+        // arrancar la animación
+        el.textContent = start;
+        setTimeout(run, stepTime);
+    }
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting && !hasAnimated) {
                 const statNumbers = entry.target.querySelectorAll(".stat-number");
                 statNumbers.forEach((counter, index) => {
+                    const target = parseInt(counter.getAttribute("data-target"), 10) || 0;
+                    const current = parseInt(counter.textContent, 10) || 0;
+                    // delay por cada contador para efecto escalonado
                     setTimeout(() => {
-                        animateCounter(counter);
+                        animateValue(counter, current, target, 1500);
                     }, index * 200);
                 });
+                hasAnimated = true;
+                obs.unobserve(entry.target);
             }
         });
-    });
+    }, { threshold: 0.1 });
 
-    const statsContainer = document.getElementById("statsGrid");
-    if (statsContainer) {
-        observer.observe(statsContainer);
-    }
+    observer.observe(statsContainer);
 }
 
 // Barras de habilidades

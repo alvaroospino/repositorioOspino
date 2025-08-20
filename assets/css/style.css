@@ -609,6 +609,102 @@
             font-size: 3rem;
         }
 
+        /* Entrada profesional desde la orilla (izquierda/derecha/abajo) */
+        .hero-image.enter-left,
+        .hero-image.enter-right,
+        .hero-image.enter-bottom {
+            will-change: transform, opacity;
+            transform-origin: center;
+            opacity: 0;
+        }
+
+        /* Clase que inicia la animación */
+        .hero-image.animate-enter.enter-left {
+            animation: slideInFromLeft 900ms cubic-bezier(0.22, 1.0, 0.36, 1.0) forwards;
+        }
+
+        .hero-image.animate-enter.enter-right {
+            animation: slideInFromRight 900ms cubic-bezier(0.22, 1.0, 0.36, 1.0) forwards;
+        }
+
+        .hero-image.animate-enter.enter-bottom {
+            animation: slideInFromBottom 900ms cubic-bezier(0.22, 1.0, 0.36, 1.0) forwards;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-120%) translateY(10%) rotate(-8deg) scale(0.92);
+                opacity: 0;
+                filter: blur(4px);
+            }
+            70% {
+                transform: translateX(10%) translateY(-4%) rotate(4deg) scale(1.02);
+                opacity: 1;
+                filter: blur(0);
+            }
+            100% {
+                transform: translateX(0) translateY(0) rotate(0) scale(1);
+                opacity: 1;
+                filter: none;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(120%) translateY(10%) rotate(8deg) scale(0.92);
+                opacity: 0;
+                filter: blur(4px);
+            }
+            70% {
+                transform: translateX(-10%) translateY(-4%) rotate(-4deg) scale(1.02);
+                opacity: 1;
+                filter: blur(0);
+            }
+            100% {
+                transform: translateX(0) translateY(0) rotate(0) scale(1);
+                opacity: 1;
+                filter: none;
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            0% {
+                transform: translateY(120%) scale(0.9) rotate(3deg);
+                opacity: 0;
+                filter: blur(3px);
+            }
+            70% {
+                transform: translateY(-6%) scale(1.03) rotate(-2deg);
+                opacity: 1;
+                filter: none;
+            }
+            100% {
+                transform: translateY(0) scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        /* Sutileza: sombra viva al aterrizar */
+        .hero-image.animate-enter::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            width: 60%;
+            height: 12px;
+            transform: translateX(-50%);
+            background: radial-gradient(closest-side, rgba(0,0,0,0.25), transparent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: shadowPop 900ms cubic-bezier(0.22, 1.0, 0.36, 1.0) forwards;
+        }
+
+        @keyframes shadowPop {
+            0% { opacity: 0; transform: translateX(-50%) scaleX(0.6); }
+            60% { opacity: 0.9; transform: translateX(-50%) scaleX(1.05); }
+            100% { opacity: 0.8; transform: translateX(-50%) scaleX(1); }
+        }
+
         .hero-image::before {
             content: '';
             position: absolute;
