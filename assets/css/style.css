@@ -2,7 +2,7 @@
             --primary: #6366f1;
             --secondary: #f59e0b;
             --accent: #10b981;
-            --dark: #0f0f23;
+            --dark: #101028;
             --darker: #050517;
             --light: #ffffff;
             --gray-100: #f8fafc;
@@ -1846,14 +1846,3 @@
                 --gray-400: #e0e0e0;
             }
         }
-
-        /* Modo oscuro del sistema */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --light: #ffffff;
-                --dark: #000000;
-            }
-        }
-
-
-        
