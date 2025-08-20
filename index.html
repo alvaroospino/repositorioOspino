@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alvaro Ospino - Senior Frontend Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Animaciones de fondo -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="logo">AO</div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="#hero">Inicio</a></li>
+            <li class="nav-item"><a href="#about">Sobre mí</a></li>
+            <li class="nav-item"><a href="#skills">Habilidades</a></li>
+            <li class="nav-item"><a href="#projects">Proyectos</a></li>
+            <li class="nav-item"><a href="#contact">Contacto</a></li>
+        </ul>
+        
+        <div class="nav-controls">
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-greeting">👋 Hola, soy</div>
+                <h1 class="hero-title" id="heroName">Alvaro Ospino</h1>
+                <p class="hero-subtitle">Desarrollador Apasionado, Frontend Developer & UX Designer</p>
+                <p class="hero-description">
+                    Transformo ideas en experiencias digitales excepcionales. Con más de 3 años de experiencia,
+                    me especializo en crear interfaces modernas, interactivas y centradas en el usuario.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Contáctame</span>
+                        <span>🚀</span>
+                    </a>
+                    <a href="#projects" class="btn btn-outline">
+                        <span>Ver Proyectos</span>
+                        <span>📱</span>
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">📧</a>
+                    <a href="#" class="social-link">💼</a>
+                    <a href="#" class="social-link">🙂</a>
+                    <a href="#" class="social-link">🦅</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image" id="heroAvatar">
+                    <img src="assets/images/ospino.gif" class="hero-img" alt="Imagen de Alvaro Ospino">
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-element"></div>
+                    <div class="floating-element"></div>
+                    <div class="floating-element"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about reveal" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre mí</h2>
+                <p class="section-subtitle">
+                    Apasionado por crear experiencias digitales que marquen la diferencia
+                </p>
+            </div>
+            <div class="about-content">
+                <div class="about-avatar-container">
+                    <div class="about-avatar" id="aboutAvatar">
+                        <img src="assets/images/ospino.gif" class="hero-img" alt="Imagen de Alvaro Ospino">
+                    </div>
+                </div>
+                <div class="about-text" id="aboutText">
+                    <p>
+                        Soy un desarrollador frontend con una pasión inquebrantable por la innovación y el diseño.
+                        Mi journey comenzó hace más de 3 años, y desde entonces he trabajado en proyectos diversos
+                        que me han permitido crecer profesionalmente.
+                    </p>
+                    <p>
+                        Me especializo en HTML5, CSS3, JavaScript, php y estoy aprendiendo React.js, siempre manteniéndome a la
+                        vanguardia del desarrollo frontend. Mi enfoque combina código limpio, diseño centrado en el
+                        usuario y optimización de rendimiento.
+                    </p>
+                    <p>
+                        Cuando no estoy codificando, me encontrarás aprendiendo nuevas tecnologías,
+                        trabajando en proyectos personales, o explorando las últimas tendencias en UI/UX.
+                    </p>
+                    <div class="stats-grid" id="statsGrid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="25">0</div>
+                            <div class="stat-label">Proyectos Completados</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="12">14</div>
+                            <div class="stat-label">Tecnologías Dominadas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills reveal" id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Habilidades</h2>
+                <p class="section-subtitle">
+                    Tecnologías y herramientas que domino para crear experiencias excepcionales
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Html5 & Css3</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="60"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">TypeScript</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="30"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">React.js</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="30"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Bootstrap</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & Databases</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">PHP & Laravel</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="54"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="40"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="50"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">PostgreSQL</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="40"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">MySQL</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="60"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & DevOps</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Git & GitHub</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Docker</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="20"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Figma</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" data-level="60"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+<section class="projects reveal" id="projects">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <p class="section-subtitle">
+                Una selección de mis trabajos más recientes y desafiantes
+            </p>
+        </div>
+        
+        <div class="projects-carousel">
+            <div class="projects-track" id="projectsTrack">
+                <div class="project-slide">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/images/gym.jpg" alt="Gym App">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Gym App</h3>
+                            <p class="project-description">
+                                Aplicación web para gestión de gimnasio con registro de usuarios,
+                                seguimiento de rutinas y estadísticas de progreso.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">MySQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://gimproo.infinityfreeapp.com/" class="project-link">
+                                    <span>Ver Demo</span>
+                                    <span>🔗</span>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <span>Código</span>
+                                    <span>📱</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-slide">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/images/muvis-recomender.jpg" alt="Sistema de recomendación de películas">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Sistema de Recomendación de Películas</h3>
+                            <p class="project-description">
+                                Plataforma de recomendación de películas basada en preferencias del usuario,
+                                con integración de API externa y diseño adaptativo.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">PHP</span>
+                                <span class="tag">Bootstrap</span>
+                                <span class="tag">Laravel</span>
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">Consumo de API</span>
+                                <span class="tag">PWA</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <span>Ver Demo</span>
+                                    <span>🔗</span>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <span>Código</span>
+                                    <span>📱</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-slide">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/images/gestion-agropecuaria.jpg" alt="Software de gestión agropecuaria">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Software de Gestión Agropecuaria</h3>
+                            <p class="project-description">
+                                Plataforma integral para gestión de fincas agropecuarias con análisis de datos,
+                                reportes visuales y administración de recursos.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">PHP</span>
+                                <span class="tag">Bootstrap</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">PWA</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://agropecuario.wuaze.com/?i=1" class="project-link">
+                                    <span>Ver Demo</span>
+                                    <span>🔗</span>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <span>Código</span>
+                                    <span>📱</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Miniaturas de los proyectos -->
+        <div class="project-thumbnails" id="projectThumbnails">
+            <div class="thumbnail active" data-slide="0">
+                <img src="assets/images/gym.jpg" alt="Gym App">
+                <div class="thumbnail-info">
+                    <h4>Gym App</h4>
+                    <span>Web App</span>
+                </div>
+            </div>
+            <div class="thumbnail" data-slide="1">
+                <img src="assets/images/muvis-recomender.jpg" alt="Movies Recommender">
+                <div class="thumbnail-info">
+                    <h4>Movies System</h4>
+                    <span>Laravel + API</span>
+                </div>
+            </div>
+            <div class="thumbnail" data-slide="2">
+                <img src="assets/images/gestion-agropecuaria.jpg" alt="Gestión Agropecuaria">
+                <div class="thumbnail-info">
+                    <h4>Agro Management</h4>
+                    <span>PHP + Bootstrap</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="carousel-controls">
+            <button class="carousel-btn" id="prevBtn">←</button>
+            <button class="carousel-btn" id="nextBtn">→</button>
+        </div>
+        
+        <div class="carousel-indicators" id="indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+</section>
+    <!-- Contact Section -->
+    <section class="contact reveal" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">¿Trabajamos Juntos?</h2>
+                <p class="section-subtitle">
+                    Estoy siempre abierto a nuevas oportunidades y proyectos desafiantes
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 2rem;">Conectemos</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray-300); margin-bottom: 2rem;">
+                        ¿Tienes un proyecto en mente? ¿Buscas un desarrollador que pueda llevar tu idea
+                        al siguiente nivel? Me encantaría escuchar sobre tu visión y cómo puedo ayudarte a hacerla realidad.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">📧</div>
+                            <div>
+                                <div style="color: var(--gray-400); font-size: 0.9rem;">Email</div>
+                                <div style="color: var(--light); font-weight: 600;">adospino12@gmail.com</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">📱</div>
+                            <div>
+                                <div style="color: var(--gray-400); font-size: 0.9rem;">Teléfono</div>
+                                <div style="color: var(--light); font-weight: 600;">+57 (301) 123-4567</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; background: var(--gradient-3); border-radius: 50%; display: flex; align-items: center; justify-content: center;">🌍</div>
+                            <div>
+                                <div style="color: var(--gray-400); font-size: 0.9rem;">Ubicación</div>
+                                <div style="color: var(--light); font-weight: 600;">Santa Marta, Colombia</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Enviar Mensaje</span>
+                        <span>🚀</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-content">
+                <p>&copy; <span id="date" ></span> Alvaro Ospino. Diseñado y desarrollado con ❤️</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
